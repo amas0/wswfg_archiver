@@ -42,7 +42,7 @@ async def download_image(img: Image, session: aiohttp.ClientSession) -> Image:
 
 
 async def download_images_async(start_date: date = date(2011, 9, 12), end_date: Optional[date] = date.today()) -> List[Image]:
-    connector = aiohttp.TCPConnector(limit=20)
+    connector = aiohttp.TCPConnector(limit=8)
     async with aiohttp.ClientSession(connector=connector) as session:
         image_links = await get_all_available_image_links(session)
         to_download = [img for img in image_links if start_date <= img.dat <= end_date]
