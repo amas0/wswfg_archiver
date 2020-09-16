@@ -3,22 +3,44 @@
 This simple command-line utility downloads the comic images to an archive directory
 from www.willsaveworldforgold.com. 
 
-#### Installation
+### Installation
 
-##### Linux
+Installation takes advantage of the `pipx` [project](https://github.com/pipxproject/pipx). 
 
-Assuming `git` and `pip` (`python >= 3.6`):
+The following will install `git` and `pipx` for your system if not installed.
 
-```bash
-git clone https://github.com/amas0/wswfg_archiver.git 
-pip install ./wswfg_archiver
+##### MacOS
+
+If not installed, install [homebrew](https://brew.sh/).
+
 ```
+$ brew install git pipx
+$ pipx ensurepath
+```
+
+##### Arch Linux based distros
+
+```
+$ pacman -S git python-pipx
+$ pipx ensurepath
+```
+
+_Note: you need to close and reopen your terminal after `pipx ensurepath`_
+
+#### Install
+
+The following command will install the utility.
+
+```
+$ pipx install git+https://github.com/amas0/wswfg_archiver.git
+```
+
 
 #### Usage
 
-Installing the utility via `pip` will give you the command line tool, `wswfg`:
+Installation will give you the command line tool `wswfg`:
 
-```bash
+```
 $ wswfg -h
 
 usage: wswfg [-h] [-s START_DATE] [-e END_DATE] [--download-all] output
