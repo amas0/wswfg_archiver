@@ -43,7 +43,7 @@ Installation will give you the command line tool `wswfg`:
 ```
 $ wswfg -h
 
-usage: wswfg [-h] [-s START_DATE] [-e END_DATE] [--download-all] output
+usage: wswfg [-h] [-s START_DATE] [-e END_DATE] [--download-all] [--overwrite] output
 
 Downloads the web comic "Will Save World For Gold"
 
@@ -57,6 +57,7 @@ optional arguments:
   -e END_DATE, --end-date END_DATE
                         Format: YYYY-MM-DD. Comic date to end archiving, omitting this will set today's date at the end
   --download-all        Enable this flag to download the full comic archive starting from 2011/09. This will override start and end date args. Use responsibly to avoid straining the server.
+  --overwrite           Overwrite existing archived images.
 ```
 
 Basic usage to download all comics from the past 7 days just requires specifying the directory you'd like to save them to:
@@ -82,3 +83,7 @@ For a full archive, you can use the `--download-all` flag:
 ```
 $ wswfg --download_all full_archive/
 ```
+
+By default, the tool looks in the provided `output` directory and checks for existing
+archived images. If found, it will only update newer images than those already found. 
+Passing the `--overwrite` flag will ignore this behavior.
